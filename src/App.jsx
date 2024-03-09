@@ -43,7 +43,6 @@ function App() {
           <p onClick={() => setIsAlertVisible(false)}>X</p>
         </div>
       )} */}
-
       <Carousel />
     </>
   );

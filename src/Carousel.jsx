@@ -5,7 +5,7 @@ import ImageThree from "./assets/imageThree.jpeg";
 
 function Carousel() {
   const images = [ImageOne, ImageTwo, ImageThree, ImageTwo, ImageOne];
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
