@@ -7,6 +7,7 @@ import Button from "./common/components/button/Button";
 import Carousel from "./Carousel";
 import LikeComponent from "./LikeComponent";
 import StateUpdates from "./StateUpdates";
+import Ecommerce from "./Ecommerce";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
@@ -47,10 +48,8 @@ function App() {
         </div>
       )}
       <Carousel />
-
       <LikeComponent label="sdfsdffd" /> */}
-
-      <StateUpdates />
+      <Ecommerce />
     </>
   );
 }
