@@ -38,6 +38,7 @@ function App() {
         Submit
       </Button>
       {isAlertVisible && (
+        
         <div className="alert alert-primary" role="alert">
           A simple primary alert—check it out!
           <p onClick={() => setIsAlertVisible(false)}>X</p>
