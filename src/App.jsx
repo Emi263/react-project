@@ -5,6 +5,7 @@ import ListGroup from "./ListGroup";
 import { useState } from "react";
 import Button from "./common/components/button/Button";
 import Carousel from "./Carousel";
+import LikeComponent from "./LikeComponent";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
@@ -37,14 +38,16 @@ function App() {
       >
         Submit
       </Button>
+      */}
       {isAlertVisible && (
-        
         <div className="alert alert-primary" role="alert">
           A simple primary alert—check it out!
           <p onClick={() => setIsAlertVisible(false)}>X</p>
         </div>
-      )} */}
+      )}
       <Carousel />
+
+      <LikeComponent label="sdfsdffd" />
     </>
   );
 }
