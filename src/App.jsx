@@ -6,6 +6,7 @@ import { useState } from "react";
 import Button from "./common/components/button/Button";
 import Carousel from "./Carousel";
 import LikeComponent from "./LikeComponent";
+import StateUpdates from "./StateUpdates";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
@@ -39,7 +40,7 @@ function App() {
         Submit
       </Button>
       */}
-      {isAlertVisible && (
+      {/* {isAlertVisible && (
         <div className="alert alert-primary" role="alert">
           A simple primary alert—check it out!
           <p onClick={() => setIsAlertVisible(false)}>X</p>
@@ -47,7 +48,9 @@ function App() {
       )}
       <Carousel />
 
-      <LikeComponent label="sdfsdffd" />
+      <LikeComponent label="sdfsdffd" /> */}
+
+      <StateUpdates />
     </>
   );
 }
