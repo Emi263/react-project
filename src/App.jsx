@@ -8,6 +8,8 @@ import Carousel from "./Carousel";
 import LikeComponent from "./LikeComponent";
 import StateUpdates from "./StateUpdates";
 import Ecommerce from "./Ecommerce";
+import NewForm from "./NewForm";
+import Rendering from "./Rendering";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
@@ -49,7 +51,8 @@ function App() {
       )}
       <Carousel />
       <LikeComponent label="sdfsdffd" /> */}
-      <Ecommerce />
+      {/* <NewForm /> */}
+      <Rendering />
     </>
   );
 }
