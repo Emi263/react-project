@@ -9,7 +9,15 @@ import LikeComponent from "./LikeComponent";
 import StateUpdates from "./StateUpdates";
 import Ecommerce from "./Ecommerce";
 import NewForm from "./NewForm";
-import Rendering from "./Rendering";
+import UserList from "./UserList";
+import Comments from "./Comments";
+import ExampleWithAxios from "./ExampleWithAxios";
+import { ChakraProvider } from "@chakra-ui/react";
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CommentSinglePage from "./CommentSinglePage";
+import Home from "./Home";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
@@ -18,9 +26,33 @@ function App() {
 
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "comments",
+      element: <Comments />,
+    },
+    {
+      path: "about",
+      element: <div>About</div>,
+    },
+    {
+      path: "comment/:id",
+      element: <CommentSinglePage />,
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
+    },
+  ]);
+
   return (
     <>
-      {/* <ListGroup
+      <ChakraProvider>
+        {/* <ListGroup
         listItems={testList}
         heading="List items"
         //pass values from Child to Parent via Props
@@ -43,7 +75,7 @@ function App() {
         Submit
       </Button>
       */}
-      {/* {isAlertVisible && (
+        {/* {isAlertVisible && (
         <div className="alert alert-primary" role="alert">
           A simple primary alert—check it out!
           <p onClick={() => setIsAlertVisible(false)}>X</p>
@@ -51,8 +83,14 @@ function App() {
       )}
       <Carousel />
       <LikeComponent label="sdfsdffd" /> */}
-      {/* <NewForm /> */}
-      <Rendering />
+        {/* <NewForm /> */}
+        {/* <Comments /> */}
+
+        {/* <ExampleWithAxios /> */}
+        {/* <UserList /> */}
+
+        <RouterProvider router={router} />
+      </ChakraProvider>
     </>
   );
 }
