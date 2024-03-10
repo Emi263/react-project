@@ -18,18 +18,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CommentSinglePage from "./CommentSinglePage";
 import Home from "./Home";
 import NotFoundPage from "./NotFoundPage";
+import useFetch from "./useFetch";
+import UserInfo from "./UserInfo";
+import Form from "./Form";
+import NewProductList from "./NewProductList";
+import { ThemeContext } from "./ThemeContext";
 
 function App() {
   const testList = ["An item", "A second Item", "A third item", "A fourth Item", "A fifth item"];
   const cities = ["Tirana", "Shkodra", "Durres", "Berat"];
   const [childActiveIndex, setChildActiveIndex] = useState(-1);
-
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <NewProductList />,
     },
     {
       path: "comments",
@@ -44,15 +48,25 @@ function App() {
       element: <CommentSinglePage />,
     },
     {
+      path: "user-info/:id",
+      element: <UserInfo />,
+    },
+    {
+      path: "form",
+      element: <Form />,
+    },
+    {
       path: "*",
       element: <NotFoundPage />,
     },
   ]);
 
+  const [theme, setTheme] = useState("light");
   return (
     <>
-      <ChakraProvider>
-        {/* <ListGroup
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ChakraProvider>
+          {/* <ListGroup
         listItems={testList}
         heading="List items"
         //pass values from Child to Parent via Props
@@ -75,7 +89,7 @@ function App() {
         Submit
       </Button>
       */}
-        {/* {isAlertVisible && (
+          {/* {isAlertVisible && (
         <div className="alert alert-primary" role="alert">
           A simple primary alert—check it out!
           <p onClick={() => setIsAlertVisible(false)}>X</p>
@@ -83,14 +97,15 @@ function App() {
       )}
       <Carousel />
       <LikeComponent label="sdfsdffd" /> */}
-        {/* <NewForm /> */}
-        {/* <Comments /> */}
+          {/* <NewForm /> */}
+          {/* <Comments /> */}
 
-        {/* <ExampleWithAxios /> */}
-        {/* <UserList /> */}
+          {/* <ExampleWithAxios /> */}
+          {/* <UserList /> */}
 
-        <RouterProvider router={router} />
-      </ChakraProvider>
+          <RouterProvider router={router} />
+        </ChakraProvider>
+      </ThemeContext.Provider>
     </>
   );
 }

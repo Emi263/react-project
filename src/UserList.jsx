@@ -1,17 +1,12 @@
 import useFetch from "./useFetch";
 import UserCard from "./UserCard";
-import axios from "axios";
+
 function UserList() {
   //mount -> Happens only the first time
   //render -> First time + on every state or props change
 
-  const response = useFetch("https://official-joke-api.appspot.com/random_joke");
+  const response = useFetch("https://jsonplaceholder.typicode.com/users");
 
-  console.log(response);
-
-  axios.get("https://official-joke-api.appspot.com/random_joke").then((res) => {
-    console.log(res.data);
-  });
   return (
     <div>
       {response.loading && <p></p>}
@@ -26,6 +21,7 @@ function UserList() {
               email={user.email}
               streetAddress={user.address.street}
               companyName={user.company.name}
+              userId={user.id}
             />
           );
         })}

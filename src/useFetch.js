@@ -5,12 +5,8 @@ function useFetch(url) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  function fetchData(url) {
-    fetch(url, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
+  useEffect(() => {
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -21,22 +17,12 @@ function useFetch(url) {
         setError(true);
         setLoading(false);
       });
-  }
-
-  useEffect(() => {
-    fetchData(url);
   }, [url]);
-
-  function refetch() {
-    setData(null);
-    fetchData(url);
-  }
 
   return {
     data,
     loading,
     error,
-    refetch,
   };
 }
 
